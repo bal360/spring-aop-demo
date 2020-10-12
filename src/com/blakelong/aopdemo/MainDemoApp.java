@@ -3,6 +3,7 @@ package com.blakelong.aopdemo;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.blakelong.aopdemo.dao.AccountDAO;
+import com.blakelong.aopdemo.dao.MembershipDAO;
 
 public class MainDemoApp {
 	
@@ -14,9 +15,14 @@ public class MainDemoApp {
 		// get the bean from the spring container
 		AccountDAO accountDAO = context.getBean("accountDAO", AccountDAO.class);
 		
-		// call the business model
+		MembershipDAO membershipDAO = context.getBean("membershipDAO", MembershipDAO.class);
+		
+		// call the business method
 		accountDAO.addAccount();
 		
+		// call the membership business method
+		membershipDAO.addAccount();
+
 		// close the context
 		context.close();
 		
